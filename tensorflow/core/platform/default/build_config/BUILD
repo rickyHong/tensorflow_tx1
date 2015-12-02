@@ -74,10 +74,10 @@ filegroup(
 cc_library(
     name = "cuda",
     data = [
-        "//third_party/gpus/cuda:lib64/libcudart.so.7.0",
+        "//third_party/gpus/cuda:lib/libcudart.so.7.0",
     ],
     linkopts = [
-        "-Wl,-rpath,third_party/gpus/cuda/lib64",
+        "-Wl,-rpath,third_party/gpus/cuda/lib",
     ],
     deps = [
         "//third_party/gpus/cuda:cudart",

@@ -37,7 +37,7 @@ namespace internal {
 
 /* static */ port::Status DsoLoader::GetCublasDsoHandle(void** dso_handle) {
   return GetDsoHandle(FindDsoPath("libcublas.so.7.0",
-                                  "third_party/gpus/cuda/lib64"),
+                                  "third_party/gpus/cuda/lib"),
                       dso_handle);
 }
 
@@ -45,32 +45,32 @@ namespace internal {
   // libcudnn is versioned differently than the other libraries.  See b/22397368
   // for some details about the complications surrounding this.
   return GetDsoHandle(FindDsoPath("libcudnn.so.6.5",
-                                  "third_party/gpus/cuda/lib64"),
+                                  "third_party/gpus/cuda/lib"),
                       dso_handle);
 }
 
 /* static */ port::Status DsoLoader::GetCufftDsoHandle(void** dso_handle) {
   return GetDsoHandle(FindDsoPath("libcufft.so.7.0",
-                                  "third_party/gpus/cuda/lib64"),
+                                  "third_party/gpus/cuda/lib"),
                       dso_handle);
 }
 
 /* static */ port::Status DsoLoader::GetCurandDsoHandle(void** dso_handle) {
   return GetDsoHandle(FindDsoPath("libcurand.so.7.0",
-                                  "third_party/gpus/cuda/lib64"),
+                                  "third_party/gpus/cuda/lib"),
                       dso_handle);
 }
 
 /* static */ port::Status DsoLoader::GetLibcudaDsoHandle(void** dso_handle) {
   return GetDsoHandle(FindDsoPath("libcuda.so",
-                                  "third_party/gpus/cuda/driver/lib64"),
+                                  "third_party/gpus/cuda/driver/lib"),
                       dso_handle);
 }
 
 /* static */ port::Status DsoLoader::GetLibcuptiDsoHandle(void** dso_handle) {
   return GetDsoHandle(
       FindDsoPath("libcupti.so.7.0",
-                  "third_party/gpus/cuda/extras/CUPTI/lib64"),
+                  "third_party/gpus/cuda/extras/CUPTI/lib"),
       dso_handle);
 }
 
@@ -122,7 +122,7 @@ namespace internal {
 static std::vector<string>* CreatePrimordialRpaths() {
   auto rpaths = new std::vector<string>;
   rpaths->push_back(
-      "driver/driver_sh.runfiles/third_party/gpus/cuda/lib64");
+      "driver/driver_sh.runfiles/third_party/gpus/cuda/lib");
   return rpaths;
 }
 

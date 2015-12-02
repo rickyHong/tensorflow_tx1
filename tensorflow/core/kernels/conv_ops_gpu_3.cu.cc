@@ -30,7 +30,10 @@ typedef Eigen::GpuDevice GPUDevice;
 namespace functor {
 
 // A simple array that contains data that can be passed between CPU and GPU.
+/* On ARMv7 Eigen::DenseIndex is typedefed to int */
+#ifndef __arm__
 template <typename T, int IndexCount, T DefaultValue>
+#endif
 struct Array {
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE const T& operator[](int index) const {
     return data[index];

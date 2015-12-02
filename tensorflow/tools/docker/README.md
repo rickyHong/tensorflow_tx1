@@ -77,7 +77,7 @@ complete, we can build via
     $ docker export $TC | docker import - $USER/tensorflow-gpu-flat
     $ docker rm $TC
     $ export TC=$(docker create $USER/tensorflow-gpu-flat /bin/bash)
-    $ docker commit --change='CMD ["/bin/bash"]'  --change='ENV CUDA_PATH /usr/local/cuda' --change='ENV LD_LIBRARY_PATH /usr/local/cuda/lib64' --change='WORKDIR /root' $TC $USER/tensorflow-full-gpu
+    $ docker commit --change='CMD ["/bin/bash"]'  --change='ENV CUDA_PATH /usr/local/cuda' --change='ENV LD_LIBRARY_PATH /usr/local/cuda/lib' --change='WORKDIR /root' $TC $USER/tensorflow-full-gpu
     $ docker rm $TC
 
 This final image is a full TensorFlow image with GPU support.

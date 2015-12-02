@@ -5,10 +5,10 @@ MAINTAINER Craig Citro <craigcitro@google.com>
 # Set up CUDA variables and symlinks
 COPY cuda /usr/local/cuda
 ENV CUDA_PATH /usr/local/cuda
-ENV LD_LIBRARY_PATH /usr/local/cuda/lib64
+ENV LD_LIBRARY_PATH /usr/local/cuda/lib
 
 RUN echo "CUDA_PATH=/usr/local/cuda" >>~/.bash_profile
-RUN echo "LD_LIBRARY_PATH=/usr/local/cuda/lib64" >>~/.bash_profile
+RUN echo "LD_LIBRARY_PATH=/usr/local/cuda/lib" >>~/.bash_profile
 
 # Set up to build TensorFlow with GPU support.
 WORKDIR /tensorflow

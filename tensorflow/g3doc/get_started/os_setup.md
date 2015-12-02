@@ -190,7 +190,7 @@ variables.  Consider adding the commands below to your `~/.bash_profile`.  These
 assume your CUDA installation is in `/usr/local/cuda`:
 
 ```bash
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib"
 export CUDA_HOME=/usr/local/cuda
 ```
 
@@ -315,7 +315,7 @@ toolkit is installed in `/usr/local/cuda`:
 ``` bash
 tar xvzf cudnn-6.5-linux-x64-v2.tgz
 sudo cp cudnn-6.5-linux-x64-v2/cudnn.h /usr/local/cuda/include
-sudo cp cudnn-6.5-linux-x64-v2/libcudnn* /usr/local/cuda/lib64
+sudo cp cudnn-6.5-linux-x64-v2/libcudnn* /usr/local/cuda/lib
 ```
 
 ##### Configure TensorFlow's canonical view of Cuda libraries
@@ -333,7 +333,7 @@ Please specify the location where CUDNN 6.5 V2 library is installed. Refer to
 README.md for more details. [default is: /usr/local/cuda]: /usr/local/cuda
 
 Setting up Cuda include
-Setting up Cuda lib64
+Setting up Cuda lib
 Setting up Cuda bin
 Setting up Cuda nvvm
 Configuration finished
@@ -381,7 +381,7 @@ Please note that each additional compute capability significantly increases
 your build time and binary size. [Default is: "3.5,5.2"]: 3.0
 
 Setting up Cuda include
-Setting up Cuda lib64
+Setting up Cuda lib
 Setting up Cuda bin
 Setting up Cuda nvvm
 Configuration finished

@@ -39,7 +39,7 @@ cc_library(
 cc_library(
     name = "cudart_static",
     srcs = [
-        "lib64/libcudart_static.a",
+        "lib/libcudart_static.a",
     ],
     includes = ["include/"],
     linkopts = [
@@ -53,10 +53,10 @@ cc_library(
 cc_library(
     name = "cudart",
     srcs = [
-        "lib64/libcudart.so.7.0",
+        "lib/libcudart.so.7.0",
     ],
     data = [
-        "lib64/libcudart.so.7.0",
+        "lib/libcudart.so.7.0",
     ],
     includes = ["include/"],
     visibility = ["//visibility:public"],
@@ -66,10 +66,10 @@ cc_library(
 cc_library(
     name = "cublas",
     srcs = [
-        "lib64/libcublas.so.7.0",
+        "lib/libcublas.so.7.0",
     ],
     data = [
-        "lib64/libcublas.so.7.0",
+        "lib/libcublas.so.7.0",
     ],
     includes = ["include/"],
     visibility = ["//visibility:public"],
@@ -79,10 +79,10 @@ cc_library(
 cc_library(
     name = "cudnn",
     srcs = [
-        "lib64/libcudnn.so.6.5",
+        "lib/libcudnn.so.6.5",
     ],
     data = [
-        "lib64/libcudnn.so.6.5",
+        "lib/libcudnn.so.6.5",
     ],
     includes = ["include/"],
     visibility = ["//visibility:public"],
@@ -115,10 +115,10 @@ genrule(
         "include/cuda.h",
         "include/cublas.h",
         "include/cudnn.h",
-        "lib64/libcudart_static.a",
-        "lib64/libcublas.so.7.0",
-        "lib64/libcudnn.so.6.5",
-        "lib64/libcudart.so.7.0",
+        "lib/libcudart_static.a",
+        "lib/libcublas.so.7.0",
+        "lib/libcudnn.so.6.5",
+        "lib/libcudart.so.7.0",
     ],
     cmd = if_cuda(
         # Under cuda config, create all the symbolic links to the actual cuda files
@@ -127,14 +127,14 @@ genrule(
         # Under non-cuda config, create all dummy files to make the build go through
         ";".join([
           "mkdir -p $(@D)/include",
-         "mkdir -p $(@D)/lib64",
+         "mkdir -p $(@D)/lib",
          "touch $(@D)/include/cuda.h",
           "touch $(@D)/include/cublas.h",
           "touch $(@D)/include/cudnn.h",
-          "touch $(@D)/lib64/libcudart_static.a",
-          "touch $(@D)/lib64/libcublas.so.7.0",
-          "touch $(@D)/lib64/libcudnn.so.6.5",
-          "touch $(@D)/lib64/libcudart.so.7.0"
+          "touch $(@D)/lib/libcudart_static.a",
+          "touch $(@D)/lib/libcublas.so.7.0",
+          "touch $(@D)/lib/libcudnn.so.6.5",
+          "touch $(@D)/lib/libcudart.so.7.0"
             ]),
     ),
     local = 1,

@@ -19,8 +19,8 @@ set -e
 
 export CUDA_HOME=${CUDA_HOME:-/usr/local/cuda}
 
-if [ ! -d ${CUDA_HOME}/lib64 ]; then
-  echo "Failed to locate CUDA libs at ${CUDA_HOME}/lib64."
+if [ ! -d ${CUDA_HOME}/lib ]; then
+  echo "Failed to locate CUDA libs at ${CUDA_HOME}/lib."
   exit 1
 fi
 

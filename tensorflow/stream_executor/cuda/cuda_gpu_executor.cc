@@ -912,7 +912,12 @@ static int TryToReadNumaNode(const string &pci_bus_id, int device_ordinal) {
       << "could not convert SysFS file contents to integral NUMA node value: "
       << content;
 
-  return kUnknownNumaNode;
+  #ifdef __arm__
+    // There is no numa_node on Jetson TK1
+    return 0;
+  #else
+    return kUnknownNumaNode;
+  #endif
 }
 
 // Set of compute capability specific device parameters that cannot be
