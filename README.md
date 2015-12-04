@@ -1,6 +1,6 @@
 #TensorFlow
 
-## Note, this fork is for changes needed to compile this on the Jetson TX1 ##
+** Note, this fork is for changes needed to compile this on the Jetson TX1 **
 
 TensorFlow is an open source software library for numerical computation using
 data flow graphs.  Nodes in the graph represent mathematical operations, while
