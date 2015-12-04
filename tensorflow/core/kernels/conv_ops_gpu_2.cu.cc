@@ -29,7 +29,7 @@ namespace tensorflow {
 
 typedef Eigen::GpuDevice GPUDevice;
 template struct functor::InflatePadAndShuffle<GPUDevice, float, 4, int>;
-* On ARMv7 Eigen::DenseIndex is typedefed to int */
+/* On ARMv7 Eigen::DenseIndex is typedefed to int */
 #ifndef __arm__
 template struct functor::InflatePadAndShuffle
                                               Eigen::DenseIndex>;

@@ -21,6 +21,7 @@ cc_library(
         "*.h",
         "lib/*.h",
         "platform/**/*.h",
+	"cuda/*.h"
     ]),
     data = [
         "//tensorflow/core:cuda",

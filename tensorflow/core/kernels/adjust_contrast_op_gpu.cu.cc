@@ -24,14 +24,14 @@ limitations under the License.
 namespace tensorflow {
 
 typedef Eigen::GpuDevice GPUDevice;
-template struct functor::AdjustContrast<GPUDevice, uint8>;
+/*template struct functor::AdjustContrast<GPUDevice, uint8>;
 template struct functor::AdjustContrast<GPUDevice, int8>;
 template struct functor::AdjustContrast<GPUDevice, int16>;
 template struct functor::AdjustContrast<GPUDevice, int32>;
 template struct functor::AdjustContrast<GPUDevice, int64>;
 template struct functor::AdjustContrast<GPUDevice, float>;
 template struct functor::AdjustContrast<GPUDevice, double>;
-
+*/
 }  // namespace tensorflow
 
 #endif  // GOOGLE_CUDA

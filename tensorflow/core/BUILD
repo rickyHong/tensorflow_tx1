@@ -259,6 +259,10 @@ tf_gpu_kernel_library(
     deps = [
         "//third_party/eigen3",
     ],
+    hdrs = glob([
+        "framework/*.h",
+        "util/*.h"
+    ])
 )
 
 # Test support library needed for all tests

@@ -35,13 +35,37 @@ struct AdjustContrast {
     const int width = input.dimension(2);
     const int channels = input.dimension(3);
 
-    Eigen::array<int, 4> scalar_broadcast{{batch, height, width, channels}};
+//MF Eigen::array scalar_broadcast{{batch, height, width, channels}};
+    Eigen::array<int, 4> scalar_broadcast;
+    scalar_broadcast[0] = batch;
+    scalar_broadcast[1] = height;
+    scalar_broadcast[2] = width;
+    scalar_broadcast[3] = channels;
 #if !defined(EIGEN_HAS_INDEX_LIST)
-    Eigen::array<int, 2> reduction_axis{{1, 2}};
-    Eigen::array<int, 4> scalar{{1, 1, 1, 1}};
-    Eigen::array<int, 4> broadcast_dims{{1, height, width, 1}};
-    Eigen::Tensor<int, 4>::Dimensions reshape_dims{{batch, 1, 1, channels}};
+//MF Eigen::array reduction_axis{{1, 2}};
+//MF Eigen::array scalar{{1, 1, 1, 1}};
+//MF Eigen::array broadcast_dims{{1, height, width, 1}};
+//MF Eigen::Tensor::Dimensions reshape_dims{{batch, 1, 1, channels}};
+     Eigen::array<Eigen::DenseIndex, 2> reduction_axis;
+      reduction_axis[0]=1;
+      reduction_axis[1]=2;
+     Eigen::array<Eigen::DenseIndex,4> scalar;
+      scalar[0]=1;
+      scalar[1]=1;
+      scalar[2]=1;
+      scalar[3]=1;
+     Eigen::array<Eigen::DenseIndex, 4> broadcast_dims;
+      broadcast_dims[0]=1;
+      broadcast_dims[1]=height;
+      broadcast_dims[2]=width;
+      broadcast_dims[3]=1;
+     Eigen::DSizes<Eigen::DenseIndex, 4> reshape_dims;
+      reshape_dims[0]=batch;
+      reshape_dims[1]=1;
+      reshape_dims[2]=1;
+      reshape_dims[3]=channels;
 #else
+
     Eigen::IndexList<Eigen::type2index<1>, Eigen::type2index<2> >
         reduction_axis;
     Eigen::IndexList<Eigen::type2index<1>, Eigen::type2index<1>,

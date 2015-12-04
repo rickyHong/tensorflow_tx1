@@ -309,7 +309,7 @@ struct DSizes : array<DenseIndex, NumDims> {
   }
 #endif
 
-#ifdef EIGEN_HAS_VARIADIC_TEMPLATES
+#ifdef DontRunThisCode
   template<typename... IndexTypes> EIGEN_DEVICE_FUNC
   EIGEN_STRONG_INLINE explicit DSizes(DenseIndex firstDimension, IndexTypes... otherDimensions) {
     EIGEN_STATIC_ASSERT(sizeof...(otherDimensions) + 1 == NumDims, YOU_MADE_A_PROGRAMMING_MISTAKE)
